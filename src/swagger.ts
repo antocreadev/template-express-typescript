@@ -23,25 +23,24 @@ const options = {
     ],
     components: {
       schemas: {
-        CarInput: {
+        Car: {
           type: 'object',
           properties: {
-            brand: {
-              type: 'string',
-              example: 'Toyota',
-            },
-            model: {
-              type: 'string',
-              example: 'Corolla',
-            },
-            year: {
-              type: 'integer',
-              example: 2021,
-            },
-            color: {
-              type: 'string',
-              example: 'Black',
-            },
+            image: { type: 'string' },
+            title: { type: 'string' },
+            description: { type: 'string' },
+            link: { type: 'string' },
+            price: { type: 'number' },
+            remise: { type: 'number' },
+          },
+        },
+        Site: {
+          type: 'object',
+          properties: {
+            imageStart: { type: 'string' },
+            title: { type: 'string' },
+            description: { type: 'string' },
+            color: { type: 'string' },
           },
         },
       },

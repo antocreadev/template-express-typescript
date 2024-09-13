@@ -1,10 +1,20 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const carSchema = z.object({
-  brand: z.string().min(1, "Brand is required"),
-  model: z.string().min(1, "Model is required"),
-  year: z.number().min(1886, "Year must be valid").max(new Date().getFullYear(), "Year must be valid"),
-  color: z.string().min(1, "Color is required"),
+  image: z.string(),
+  title: z.string(),
+  description: z.string(),
+  link: z.string(),
+  price: z.number(),
+  remise: z.number(),
+});
+
+export const Site = z.object({
+  imageStart: z.string(),
+  title: z.string(),
+  description: z.string(),
+  color: z.string().regex(/#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/),
+  textFooter : z.string(),
 });
 
 export type CarInput = z.infer<typeof carSchema>;

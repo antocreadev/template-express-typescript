@@ -149,8 +149,83 @@ left : -8px;
   color: var(--black);
 }
 
+
+#contacter{
+ 
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 23%;
+
+  background: var(--blue);
+  color: white;
+
+
+  text-justify: end;
+
+  padding: 2vw;
+  margin: 2vw;
+  border-radius: 5px;
+
+
+}
+#contacter span{
+  padding-left: 2vw;
+  font-size: 1.2vh;
+
+}
+
 @media (orientation: landscape) {
   #main_section {
    padding: 0 20%;
+  }
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: var(--blue)
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer li {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+footer .location {
+  margin-bottom: 20px;
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Media Queries pour rendre le footer responsive */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer .location {
+    margin-bottom: 40px;
   }
 }

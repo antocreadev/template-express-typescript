@@ -11,10 +11,11 @@ const router = express.Router();
  * @swagger
  * /cars:
  *   get:
- *     summary: Récupère toutes les voitures
+ *     summary: Récupérer toutes les voitures
+ *     tags: [Car]
  *     responses:
  *       200:
- *         description: Liste des voitures
+ *         description: Liste de toutes les voitures
  *         content:
  *           application/json:
  *             schema:
@@ -23,18 +24,7 @@ const router = express.Router();
  *                 cars:
  *                   type: array
  *                   items:
- *                     type: object
- *                     properties:
- *                       id:
- *                         type: integer
- *                       brand:
- *                         type: string
- *                       model:
- *                         type: string
- *                       year:
- *                         type: integer
- *                       color:
- *                         type: string
+ *                     $ref: '#/components/schemas/Car'
  */
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -45,60 +35,27 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-// Route pour créer une nouvelle voiture
+// Route pour créer une voiture
 /**
  * @swagger
  * /cars:
  *   post:
- *     summary: Créer une nouvelle voiture
+ *     summary: Créer une voiture
+ *     tags: [Car]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               brand:
- *                 type: string
- *                 example: "Toyota"
- *               model:
- *                 type: string
- *                 example: "Corolla"
- *               year:
- *                 type: integer
- *                 example: 2020
- *               color:
- *                 type: string
- *                 example: "Blue"
+ *             $ref: '#/components/schemas/Car'
  *     responses:
  *       201:
- *         description: Voiture créée avec succès
+ *         description: Voiture créée
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 brand:
- *                   type: string
- *                   example: "Toyota"
- *                 model:
- *                   type: string
- *                   example: "Corolla"
- *                 year:
- *                   type: integer
- *                   example: 2020
- *                 color:
- *                   type: string
- *                   example: "Blue"
- *       400:
- *         description: Mauvaise requête (erreur de validation)
- *       500:
- *         description: Erreur serveur
+ *               $ref: '#/components/schemas/Car'
  */
-
 router.post(
   "/",
   validate(carSchema, "body"),
@@ -119,40 +76,21 @@ router.post(
  * /cars/{id}:
  *   delete:
  *     summary: Supprimer une voiture
+ *     tags: [Car]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
+ *         description: ID de la voiture
  *         schema:
  *           type: integer
- *         description: ID de la voiture
  *     responses:
  *       200:
- *         description: Voiture supprimée avec succès
+ *         description: Voiture supprimée
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 brand:
- *                   type: string
- *                   example: "Toyota"
- *                 model:
- *                   type: string
- *                   example: "Corolla"
- *                 year:
- *                   type: integer
- *                   example: 2020
- *                 color:
- *                   type: string
- *                   example: "Blue"
- *       404:
- *         description: Voiture non trouvée
- *       500:
- *         description: Erreur serveur
+ *               $ref: '#/components/schemas/Car'
  */
 router.delete("/:id", async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -171,11 +109,17 @@ router.delete("/:id", async (req: Request, res: Response, next: NextFunction) =>
  * /cars:
  *   delete:
  *     summary: Supprimer toutes les voitures
+ *     tags: [Car]
  *     responses:
  *       200:
- *         description: Voitures supprimées avec succès
- *       500:
- *         description: Erreur serveur
+ *         description: Toutes les voitures supprimées
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
  */
 router.delete("/", async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -189,65 +133,6 @@ router.delete("/", async (req: Request, res: Response, next: NextFunction) => {
 
 
 // Route pour mettre à jour une voiture avec son id
-/**
- * @swagger
- * /cars/{id}:
- *   put:
- *     summary: Mettre à jour une voiture
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *         description: ID de la voiture
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               brand:
- *                 type: string
- *                 example: "Toyota"
- *               model:
- *                 type: string
- *                 example: "Corolla"
- *               year:
- *                 type: integer
- *                 example: 2020
- *               color:
- *                 type: string
- *                 example: "Blue"
- *     responses:
- *       200:
- *         description: Voiture mise à jour avec succès
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 brand:
- *                   type: string
- *                   example: "Toyota"
- *                 model:
- *                   type: string
- *                   example: "Corolla"
- *                 year:
- *                   type: integer
- *                   example: 2020
- *                 color:
- *                   type: string
- *                   example: "Blue"
- *       404:
- *         description: Voiture non trouvée
- *       500:
- *         description: Erreur serveur
- */
 router.put(
   "/:id",
   validate(carSchema, "body"),
