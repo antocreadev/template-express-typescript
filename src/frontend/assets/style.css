@@ -1,0 +1,156 @@
+:root {
+  --blue: #FF0134;
+  --black : #212621;
+  --white: #ffffff;
+
+  --dimension: 10vh;
+}
+body{
+  font-family :Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  color : var(--black);
+}
+p, h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+
+#main-titre{
+  font-size: 5vw;
+  text-align: center;
+  padding: 0;
+}
+
+#main-description{
+  font-size: 4vw;
+  text-align: center;
+}
+#first_img{
+  width: 50%;
+  height: auto;
+}
+#start{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 15vh;
+}
+
+#main_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 5%;
+  min-height: 100vh;
+}
+
+.item{
+ width: 95vw;
+ min-width: 95vw;
+ max-width: 95vw;
+ height: 12vh;
+
+ display: flex;
+  justify-content :end;
+
+ border : 5px solid var(--blue);
+ border-bottom: 0;
+ border-top : 0;
+ border-right: 0;
+
+ padding-left: 5%;
+ padding-top: 2%;
+
+margin-bottom: 2vh;
+
+position: relative;
+left : -8px;
+}
+.item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0,0,0,0),rgba(0,0,0,0), #939393,#939393,#939393,#939393,rgba(0,0,0,0), rgba(0,0,0,0));
+}
+
+.item #ref{
+  width: 50%;
+  height: auto;
+  font-size: 10vh;
+  z-index: -1;
+  position: absolute;
+  left: -1vw;
+  color : rgba(0,0,0,0.1);
+}
+
+.item #img-voiture{
+  width: 35%;
+  height: auto;
+  position: absolute;
+  right : 66vw;
+  z-index: 1;
+}
+
+.item #title-container{
+  display: flex;
+  justify-content :space-between;
+  width: 90%;
+}
+
+.item #title{
+  font-size: 2vh;
+  min-width: 90%;
+  max-width: 90%;
+  width: 90%;
+}
+
+.item #description{
+  font-size: 1.6vh;
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+
+  padding-top: 0.5vw;
+}
+.item #end-container{
+  width: 66vw;
+  max-width: 66vw;
+  min-width: 66vw;
+  position: relative;
+  top : 2vw;
+}
+#price{
+  text-decoration: line-through;
+  font-size: 1.4vh;
+  padding: 1vw 0;
+}
+
+#remise{
+  font-size: 1.4vh;
+  background: var(--blue);
+  border-radius: 10%;
+  color : white;
+  padding: 1vw;
+  position: relative;
+  bottom: 0.5vw;
+
+  
+}
+#final-price{
+  font-size: 1.8vh;
+  font-weight: bold;
+  color: var(--black);
+}
+
+@media (orientation: landscape) {
+  #main_section {
+   padding: 0 20%;
+  }
+}

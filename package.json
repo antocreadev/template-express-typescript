@@ -4,36 +4,42 @@
   "description": "Typescript Groupe Cotal API",
   "main": "src/index.ts",
   "scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
-  "test": "jest --config jest.config.ts"
+    "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
+    "test": "jest --config jest.config.ts",
+    "build": "tsc",
+    "start": "node -r tsconfig-paths/register dist/index.js"
   },
   "author": "Anthony Menghi <contact@antocrea.dev>",
   "license": "MIT",
   "dependencies": {
-  "@prisma/client": "^5.19.1",
-  "bcrypt": "^5.1.1",
-  "cors": "^2.8.5",
-  "dotenv": "^16.4.5",
-  "express": "^4.19.2",
-  "helmet": "^7.1.0",
-  "jsonwebtoken": "^9.0.2",
-  "morgan": "^1.10.0",
-  "uuid": "^10.0.0",
-  "zod": "^3.23.8"
+    "@prisma/client": "^5.19.1",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-  "@types/cors": "^2.8.17",
-  "@types/express": "^4.17.21",
-  "@types/jest": "^29.5.12",
-  "@types/morgan": "^1.9.9",
-  "@types/node": "^22.5.3",
-  "@types/supertest": "^6.0.2",
-  "jest": "^29.7.0",
-  "prisma": "^5.19.1",
-  "supertest": "^7.0.0",
-  "ts-jest": "^29.2.5",
-  "ts-node-dev": "^2.0.0",
-  "tsconfig-paths": "^4.2.0",
-  "typescript": "^5.5.4"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.5.3",
+    "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "jest": "^29.7.0",
+    "prisma": "^5.19.1",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.4"
   }
-  }
+}

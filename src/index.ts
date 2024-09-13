@@ -1,7 +1,10 @@
 import app from './app';
+import dotenv from "dotenv";
 import { connectToDatabase, disconnectFromDatabase } from "@/src/PrismaClient/prisma";
 
-const port = process.env.PORT || 8008;
+dotenv.config();
+
+export const port = process.env.PORT || 8008;
 
 // Fonction principale pour démarrer le serveur
 const main = async () => {
